@@ -1,1 +1,16 @@
+# Служебные файлы Dota 2 Tools
 tools_thumbnail_cache.*
+tools_asset_info.bin
+
+# Кэш и временные файлы
+cache/
+**/cache/
+**/panorama/cache/
+
+# Файлы редакторов и IDE
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
