@@ -1,8 +1,6 @@
--- Generated from template
+require("main")
+require("utils/timers")
 
-if CAddonTemplateGameMode == nil then
-	CAddonTemplateGameMode = class({})
-end
 
 function Precache( context )
 	--[[
@@ -12,25 +10,21 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+	PrecacheResource( "model", "models/heroes/troll_warlord/troll_warlord.vmdl", context )
+	PrecacheResource( "particle_folder", "particles/units/heroes/hero_troll_warlord", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts", context )
+	PrecacheResource( "model", "models/heroes/rattletrap/rattletrap.vmdl", context )
+	PrecacheResource( "particle_folder", "particles/units/heroes/hero_rattletrap", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts", context )
+
+	PrecacheResource( "model", "models/props_structures/radiant_ranged_barracks001.vmdl", context )
+	PrecacheResource( "model", "models/props_gameplay/item_repair_kit_round.vmdl", context )
+	PrecacheResource( "particle", "particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_echo_stomp_ti7_ring_wave.vpcf", context )
 end
 
--- Create the game mode when we activate
+
 function Activate()
-	GameRules.AddonTemplate = CAddonTemplateGameMode()
+	GameRules.AddonTemplate = MainMode()
 	GameRules.AddonTemplate:InitGameMode()
 end
 
-function CAddonTemplateGameMode:InitGameMode()
-	print( "Template addon is loaded." )
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
-end
-
--- Evaluate the state of the game
-function CAddonTemplateGameMode:OnThink()
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--print( "Template addon script is running." )
-	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
-		return nil
-	end
-	return 1
-end
