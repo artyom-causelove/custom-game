@@ -1,0 +1,49 @@
+<root>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/main.js"/>
+    <!-- Local scripts -->
+    <include src="file://{resources}/scripts/custom_game/build-window.js"/>
+  </scripts>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/button.css"/>
+    <!-- Local styles -->
+    <include src="file://{resources}/styles/custom_game/build-window/window.css"/>
+    <include src="file://{resources}/styles/custom_game/build-window/buttons.css"/>
+    <include src="file://{resources}/styles/custom_game/build-window/item.css"/>
+  </styles>
+  <snippets>
+    <!-- Building items -->
+    <snippet name="build-item">
+      <Panel class="item">
+        <Button class="item-button">
+          <Image class="item-image"/>
+          <Label class="item-title"/>
+          <Panel class="item-gold">
+            <Image class="item-gold-image" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex"/>
+            <Label class="item-gold-text"/>
+          </Panel>
+        </Button>
+      </Panel>
+    </snippet>
+  </snippets>
+
+  <Panel class="build-window">
+    <Panel class="build-window-wrapper hidden">
+      <Label class="build-window-title" text="Выберите постройку"/>
+
+      <Panel class="item-wrapper">
+        <!-- Building items (snippet: build-item) are uploaded here via JS -->
+      </Panel>
+
+      <Button class="accept-button button">
+        <Label class="accept-button-text button-text" text="Подтвердить"/>
+      </Button>
+
+      <Panel class="close-button-wrapper">
+        <Button class="close-button">
+          <Image class="close-button-image" src="s2r://panorama/images/control_icons/24px/x_close.vsvg"/>
+        </Button>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>

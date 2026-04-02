@@ -1,0 +1,22 @@
+.accept-button {
+  margin-top: 20px;
+  width: 250px;
+  height: 50px;
+
+  horizontal-align: center;
+}
+
+.accept-button-text {
+  align: center center;
+}
+
+.close-button-wrapper {
+  ignore-parent-flow: true;
+  position: 0 0 0;
+  width: 100%;
+}
+
+.close-button {
+  horizontal-align: right;
+  margin-top: 10px;
+}

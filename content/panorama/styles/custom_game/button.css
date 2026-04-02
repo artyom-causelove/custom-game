@@ -1,0 +1,23 @@
+.button {
+  background-image: url("s2r://panorama/images/backgrounds/background_play_button_2x.png");
+  background-color: rgba(30, 30, 30, 0.25);
+  background-img-opacity: 0.4;
+  border-radius: 4px;
+  border: 1px solid rgba(11, 11, 11, 1);
+  transition: transform 0.1s ease-in-out 0.0s;
+}
+
+.button.active {
+  background-color: rgba(46, 125, 50, 1);
+  border: 1px solid rgba(46, 125, 50, 1);
+}
+
+.button.active:hover {
+  transform: scale3d(1.05, 1.05, 1);
+}
+
+.button-text {
+  font-size: 24px;
+  font-weight: black;
+  color: rgba(224, 224, 224, 1);
+}

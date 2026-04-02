@@ -1,0 +1,55 @@
+.item-wrapper {
+  flow-children: left;
+  max-height: 330px;
+}
+
+.item-button {
+  padding: 25px 20px 25px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  flow-children: down;
+  min-height: 100%;
+
+  border: 2px solid rgba(11, 11, 11, 0.4);
+  border-radius: 8px;
+  background-color: rgba(30, 30, 30, 0);
+  transition: background-color 0.1s ease-in-out 0.0s;
+}
+
+.item-button.active, .item-button:hover {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+.item-image {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.item-title {
+  width: 100%;
+
+  font-size: 28px;
+  text-align: center;
+  color: rgba(224, 224, 224, 1);
+}
+
+.item-gold {
+  margin-top: 4px;
+  horizontal-align: center;
+  flow-children: right;
+}
+
+.item-gold-image {
+  height: 26px;
+  width: 26px;
+}
+
+.item-gold-text {
+  vertical-align: center;
+  padding-top: 3px;
+  margin-left: 8px;
+
+  font-size: 20px;
+  color: rgba(255, 214, 0, 1);
+}

@@ -1,0 +1,33 @@
+.build-window {
+  align: center center;
+}
+
+.build-window-wrapper {
+  padding: 20px 40px 20px 40px;
+  min-height: 500px;
+  horizontal-align: center;
+  vertical-align: center;
+  flow-children: down;
+
+  opacity: 1;
+  border-radius: 8px;
+  background-color: rgba(30, 30, 30, 0.85);
+  background-img-opacity: 0.4;
+  background-image: url("s2r://panorama/images/backgrounds/background_play_button_2x.png");
+  background-size: 100% 100%;
+  transition: opacity 0.2s ease-in-out 0.0s;
+}
+
+.build-window-wrapper.hidden {
+  opacity: 0;
+  visibility: collapse;
+}
+
+.build-window-title {
+  margin-bottom: 30px;
+  width: 100%;
+
+  font-size: 34px;
+  text-align: center;
+  color: rgba(224, 224, 224, 1);
+}
