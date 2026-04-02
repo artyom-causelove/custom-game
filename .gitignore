@@ -1,6 +1,10 @@
 # Служебные файлы Dota 2 Tools
 tools_thumbnail_cache.*
 tools_asset_info.bin
+panorama_debugger.cfg
+
+# Файлы билда
+main.vpk
 
 # Кэш и временные файлы
 cache/

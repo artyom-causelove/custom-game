@@ -5,6 +5,8 @@ end
 local Camp_spawner
 
 function Workers:Init()
+    CustomGameEventManager:RegisterListener('custom_building_picked', Dynamic_Wrap(self, 'Build'))
+
     Camp_spawner = GameRules.AddonTemplate.CampSpawner
 
     local spawns = Entities:FindAllByName("npc_worker")
@@ -14,22 +16,28 @@ function Workers:Init()
         local origin = spawns[i]:GetAbsOrigin()
         local worker = CreateUnitByName("npc_worker", origin, true, nil, nil, DOTA_TEAM_GOODGUYS)
         worker.is_worker = true
-        worker.target = nil
         self.workers[i] = worker
     end
+
+    self.target = nil
 end
 
-
-function Workers:Build(camp, building_name)
-    self.target = camp
-    local position = Camp_spawner.camp_position[camp]
-    if self.buildings[camp] ~= nil then
-        self.buildings[camp]:RemoveSelf()
+-- event: {
+--   campId = integer
+--   buildingName = string
+-- }
+function Workers:Build(event)
+    local this = GameRules.AddonTemplate.Workers
+    DeepPrintTable(event);
+    this.target = event.campId
+    local position = Camp_spawner.camp_position[event.campId]
+    if this.buildings[event.campId] ~= nil then
+        this.buildings[event.campId]:RemoveSelf()
     end
 
-    for i=1, #self.workers do
+    for i=1, #this.workers do
         ExecuteOrderFromTable({
-            UnitIndex = self.workers[i]:GetEntityIndex(),
+            UnitIndex = this.workers[i]:GetEntityIndex(),
             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
             Position = position,
             Queue = true
@@ -38,11 +46,11 @@ function Workers:Build(camp, building_name)
     
     -- local placeholder = CreateUnitByName("npc_build_place", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
     -- Timers:CreateTimer(function() placeholder:SetAbsOrigin(position) end)
-    -- self.buildings[camp] = placeholder
+    -- this.buildings[event.campId] = placeholder
 
-    local building = CreateUnitByName(building_name, position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+    local building = CreateUnitByName(event.buildingName, position, true, nil, nil, DOTA_TEAM_GOODGUYS)
     Timers:CreateTimer(function() building:SetAbsOrigin(position) end)
-    self.buildings[camp] = building
+    this.buildings[event.campId] = building
 end
 
 -- function Workers:PushOut(building)

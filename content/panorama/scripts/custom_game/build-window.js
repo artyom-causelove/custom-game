@@ -3,13 +3,15 @@ const root = $.GetContextPanel();
 let selectedBuilding = 'none';
 let buildingPanels = [];
 let activePanel = null;
+let currentCampId = null;
+let lastCampId = null;
 
 const [wrapper] = root.FindChildrenWithClassTraverse('build-window-wrapper');
 const [itemWrapper] = root.FindChildrenWithClassTraverse('item-wrapper');
 const [closeButton] = root.FindChildrenWithClassTraverse('close-button');
 const [acceptButton] = root.FindChildrenWithClassTraverse('accept-button');
 
-const resetState = () => {
+const resetState = force => {
   acceptButton?.RemoveClass('active');
   activePanel?.RemoveClass('active');
   acceptButton.enabled = false;
@@ -17,6 +19,17 @@ const resetState = () => {
   buildingPanels = [];
   activePanel = null;
   itemWrapper.RemoveAndDeleteChildren();
+
+  if (force) {
+    currentCampId = null;
+    lastCampId = null;
+    return;
+  }
+
+  $.Schedule(10, () => {
+    currentCampId = null;
+    lastCampId = null;
+  });
 };
 
 // Логика работы кнопки 'Подтвердить'
@@ -25,7 +38,7 @@ acceptButton.SetPanelEvent('onactivate', () => {
   if (!acceptButton.enabled) return;
 
   const eventName = 'custom_building_picked';
-  const event = { buildingName: selectedBuilding };
+  const event = { campId: currentCampId, buildingName: selectedBuilding };
   GameEvents.SendCustomGameEventToServer(eventName, event);
   $.Msg(`Event from PanoramaUI (${eventName}): ${JSON.stringify(event)}`);
 
@@ -65,8 +78,13 @@ const itemOnClick = element => {
 //   description: string
 // }>
 GameEvents.Subscribe('custom_building_window_show', event => {
-  const buildings = Object.values(event);
-  resetState();
+  if (event.campId === currentCampId) return;
+  if (event.campId === lastCampId) return;
+
+  const buildings = Object.values(event.buildings);
+  resetState(true);
+  currentCampId = event.campId;
+  lastCampId = event.campId;
 
   buildingPanels = buildings.map(building => {
     const snippet = $.CreatePanel('Panel', itemWrapper, '');
