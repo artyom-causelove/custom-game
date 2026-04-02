@@ -19,7 +19,9 @@ function Precache( context )
 
 	PrecacheResource( "model", "models/props_structures/radiant_ranged_barracks001.vmdl", context )
 	PrecacheResource( "model", "models/props_gameplay/item_repair_kit_round.vmdl", context )
+	PrecacheResource( "model", "models/development/invisiblebox.vmdl", context )
 	PrecacheResource( "particle", "particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_echo_stomp_ti7_ring_wave.vpcf", context )
+	PrecacheResource( "particle", "particles/units/heroes/hero_techies/techies_minefield_hammer.vpcf", context )
 end
 
 
