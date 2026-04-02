@@ -19,9 +19,14 @@ function Workers:Init()
     end
 end
 
-function Workers:BuildOn(camp)
+
+function Workers:Build(camp, building_name)
     self.target = camp
     local position = Camp_spawner.camp_position[camp]
+    if self.buildings[camp] ~= nil then
+        self.buildings[camp]:RemoveSelf()
+    end
+
     for i=1, #self.workers do
         ExecuteOrderFromTable({
             UnitIndex = self.workers[i]:GetEntityIndex(),
@@ -30,13 +35,14 @@ function Workers:BuildOn(camp)
             Queue = true
         })
     end
-    if self.buildings[camp] ~= nil then
-        self.buildings[camp]:RemoveSelf()
-    end
-    local placeholder = CreateUnitByName("npc_build_place", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    Timers:CreateTimer(function() placeholder:SetAbsOrigin(position) end)
-    self.buildings[camp] = placeholder
-    --self:PushOut(placeholder)
+    
+    -- local placeholder = CreateUnitByName("npc_build_place", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+    -- Timers:CreateTimer(function() placeholder:SetAbsOrigin(position) end)
+    -- self.buildings[camp] = placeholder
+
+    local building = CreateUnitByName(building_name, position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+    Timers:CreateTimer(function() building:SetAbsOrigin(position) end)
+    self.buildings[camp] = building
 end
 
 -- function Workers:PushOut(building)
