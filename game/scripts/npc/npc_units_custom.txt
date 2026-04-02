@@ -94,7 +94,7 @@
 
 	//--------------------Постройки-----------------------------
 
-	"npc_build_sawmill"
+	"npc_build_blacksmith"
 	{
 		"BaseClass"		"npc_dota_building"
 		"Model"			"models/props_structures/radiant_ranged_barracks001.vmdl"
@@ -112,7 +112,7 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS"
 	}
 
-	"npc_build_anvil"
+	"npc_build_sawmill"
 	{
 		"BaseClass"		"npc_dota_building"
 		"Model"			"models/props_structures/radiant_ranged_barracks001.vmdl"
