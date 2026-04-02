@@ -61,12 +61,16 @@
 		"AnimationPrefix"			"rattletrap"
 
 		"UseNeutralCreepBehavior"	"0"
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
 		"TeamName"					"DOTA_TEAM_GOODGUYS"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
 
 		"Level"						"1"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackRange"				"150"
 		"ArmorPhysical"				"100"
 		"MagicalResistance"			"100"
 		"MovementSpeed"				"400"
@@ -94,7 +98,7 @@
 
 	//--------------------Постройки-----------------------------
 
-	"npc_build_blacksmith"
+	"npc_build_anvil"
 	{
 		"BaseClass"		"npc_dota_building"
 		"Model"			"models/props_structures/radiant_ranged_barracks001.vmdl"
@@ -134,13 +138,12 @@
 	{
 		"BaseClass"					"npc_dota_building"
 		"Model"						"models/development/invisiblebox.vmdl"
-		"SoundSet"					"Creep_Good_Melee"
 
 		"ArmorPhysical"				"0"	
 		"MagicalResistance"			"0"	
 		"StatusHealth"				"1000"
 		"StatusHealthRegen"			"0"
-		"RingRadius"				"200"	
+		"RingRadius"				"100"	
 		"Ability1"					"hero_finder"
 		
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
@@ -151,19 +154,20 @@
 
 	"npc_build_place"
 	{
-		"BaseClass"		"npc_dota_building"
+		"BaseClass"		"npc_dota_creature"
 		"Model"			"models/props_gameplay/item_repair_kit_round.vmdl"
 		"SoundSet"		"Creep_Good_Melee"
 
 		"ArmorPhysical"				"0"	
 		"MagicalResistance"			"0"	
-		"StatusHealth"				"1000"
+		"StatusHealth"				"100"
 		"StatusHealthRegen"			"0"
-		"RingRadius"				"200"
+		"RingRadius"				"100"
+		"Ability1"					"building_process"
 
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
-		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS"
 	}
 }

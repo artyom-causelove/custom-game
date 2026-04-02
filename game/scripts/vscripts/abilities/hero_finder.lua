@@ -8,6 +8,8 @@ end
 
 modifier_hero_finder = class({})
 
+function modifier_hero_finder:IsHidden() return true end
+function modifier_hero_finder:IsPurgable() return false end
 
 local interval = 2
 
@@ -66,6 +68,3 @@ function modifier_hero_finder:ShowBuildingWindow(player)
         }
     );
 end
-
-
-function modifier_hero_finder:IsHidden() return true end

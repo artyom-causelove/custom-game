@@ -33,3 +33,9 @@ function KillListener:CampCleared(camp)
     ParticleCreator:BuildingPlaceholder(placeholder)
     Workers.buildings[camp] = placeholder
 end
+
+function KillListener:KillAfterTimer(entity)
+    Timers:CreateTimer(2, function()
+        entity:RemoveSelf()
+    end)
+end

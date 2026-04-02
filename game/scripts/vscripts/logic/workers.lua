@@ -35,22 +35,17 @@ function Workers:Build(event)
         this.buildings[event.campId]:RemoveSelf()
     end
 
-    for i=1, #this.workers do
-        ExecuteOrderFromTable({
-            UnitIndex = this.workers[i]:GetEntityIndex(),
-            OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-            Position = position,
-            Queue = true
-        })
-    end
-    
-    -- local placeholder = CreateUnitByName("npc_build_place", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    -- Timers:CreateTimer(function() placeholder:SetAbsOrigin(position) end)
-    -- this.buildings[event.campId] = placeholder
+    local placeholder = CreateUnitByName("npc_build_place", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    Timers:CreateTimer(function() placeholder:SetAbsOrigin(position) end)
+    placeholder.buiding_to_build = event.buildingName
+    placeholder.camp = event.campId
+    placeholder:SetHealthBarOffsetOverride(10000)
+    this.buildings[event.campId] = placeholder
 
-    local building = CreateUnitByName(event.buildingName, position, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    Timers:CreateTimer(function() building:SetAbsOrigin(position) end)
-    this.buildings[event.campId] = building
+    for i=1, #this.workers do
+        this.workers[i]:SetForceAttackTarget(placeholder)
+    end
+
 end
 
 -- function Workers:PushOut(building)

@@ -45,24 +45,4 @@ function MainMode:StartGame()
     MainMode.CampSpawner:SpawnCamps()
     MainMode.Workers:Init()
     MainMode.KillListener:Init()
-
-    -- Timers:CreateTimer(10, function()
-    --     CustomGameEventManager:Send_ServerToAllClients('custom_building_window_show', {
-    --         {
-    --             class = 'npc_dota_sawmill',
-    --             title = 'Лесопилка',
-    --             image = 's2r://panorama/images/hud/facets/innate_icon_large_png.vtex',
-    --             price = 1000,
-    --             description = 'Описание постройки "Лесопилка"'
-    --         },
-    --         {
-    --             class = 'npc_dota_anvil',
-    --             title = 'Кузница',
-    --             image = 's2r://panorama/images/hud/facets/innate_icon_large_png.vtex',
-    --             price = 1200,
-    --             description = 'Описание постройки "Кузница"'
-    --         }
-    --     });
-    --     return 10;
-    -- end)
 end

@@ -7,8 +7,13 @@
 	{
 		"BaseClass"				"ability_lua"
 		"ScriptFile"			"abilities/hero_finder"
-		"AbilityTextureName"	"building_place"
-		//"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	"building_process"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/building_process"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 }
