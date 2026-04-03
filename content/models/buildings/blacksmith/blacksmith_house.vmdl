@@ -28,38 +28,6 @@
 				]
 			},
 			{
-				_class = "PhysicsShapeList"
-				children = 
-				[
-					{
-						_class = "PhysicsHullFile"
-						name = "blacksmith_house_collision"
-						parent_bone = ""
-						surface_prop = "default"
-						collision_prop = "default"
-						tool_material = ""
-						recenter_on_parent_bone = false
-						offset_origin = [ 0.0, 0.0, 0.0 ]
-						offset_angles = [ 0.0, 0.0, 0.0 ]
-						filename = "models/buildings/blacksmith/blacksmith_house_collision.fbx"
-						import_scale = 0.4
-						faceMergeAngle = 10.0
-						maxHullVertices = 0
-						import_mode = "SingleHull"
-						small_element_threshold = 0.0
-						thin_element_threshold = 0.0
-						optimization_algorithm = "QEM"
-						disable_region_svm = false
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = [  ]
-						}
-					},
-				]
-				leave_body_collision_unmodified = false
-			},
-			{
 				_class = "RenderMeshList"
 				children = 
 				[
@@ -74,6 +42,73 @@
 						}
 					},
 				]
+			},
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					{
+						_class = "Bone"
+						name = "blacksmith_root"
+						origin = [ -100.0, -190.0, 80.0 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						do_not_discard = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "hitbox"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "blacksmith_root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -81.814026, -69.0766, -106.878006 ]
+								hitbox_maxs = [ 147.54639, 442.3063, 80.0072 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "cube"
+						is_default_idle_anim = false
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/cube.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
 		model_archetype = ""
