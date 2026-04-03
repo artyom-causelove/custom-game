@@ -7,7 +7,12 @@
 	{
 		"BaseClass"				"ability_lua"
 		"ScriptFile"			"abilities/hero_finder"
+		"AbilityTextureName"	"building_place"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+				"aura_radius"								"400"	
+		}
 	}
 
 	"building_process"

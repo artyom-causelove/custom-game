@@ -26,7 +26,6 @@ function modifier_building_process:GetModifierTotal_ConstantBlock(params)
     if not IsServer() then return 0 end
     if params.attacker.is_worker then
         self.built = self.built + 1
-        print("Постройка: " .. self.built)
 
     end
     if self.built == 10 then
@@ -36,18 +35,13 @@ function modifier_building_process:GetModifierTotal_ConstantBlock(params)
         local parent = self:GetParent()
         local building_name = parent.buiding_to_build
         local camp_id = parent.camp
+
         local building = CreateUnitByName(building_name, parent:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
         Timers:CreateTimer(function() building:SetAbsOrigin(parent:GetAbsOrigin()) end)
         Workers.buildings[camp_id] = building
+        
         KillListener:KillAfterTimer(parent)
-        for i=1, #Workers.workers do
-            ExecuteOrderFromTable({
-                UnitIndex = Workers.workers[i]:GetEntityIndex(),
-                OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-                Position = home:GetAbsOrigin(),
-                Queue = false
-            })
-        end
+        Workers:GoTo(home:GetAbsOrigin())
     end
     return params.damage
 end

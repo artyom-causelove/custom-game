@@ -29,7 +29,7 @@ function modifier_hero_finder:OnIntervalThink()
             DOTA_TEAM_GOODGUYS, 
             self:GetParent():GetAbsOrigin(), 
             nil, 
-            400,
+            self:GetAbility():GetSpecialValueFor("aura_radius"),
             DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
             DOTA_UNIT_TARGET_HERO, 
             DOTA_UNIT_TARGET_FLAG_NONE, 

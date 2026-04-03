@@ -12,7 +12,8 @@ function Workers:Init()
     local spawns = Entities:FindAllByName("npc_worker")
     self.workers = {}
     self.buildings = {}
-    for i = 1, #spawns do
+    self.amount = #spawns
+    for i = 1, self.amount do
         local origin = spawns[i]:GetAbsOrigin()
         local worker = CreateUnitByName("npc_worker", origin, true, nil, nil, DOTA_TEAM_GOODGUYS)
         worker.is_worker = true
@@ -28,7 +29,6 @@ end
 -- }
 function Workers:Build(event)
     local this = GameRules.AddonTemplate.Workers
-    DeepPrintTable(event);
     this.target = event.campId
     local position = Camp_spawner.camp_position[event.campId]
     if this.buildings[event.campId] ~= nil then
@@ -46,6 +46,18 @@ function Workers:Build(event)
         this.workers[i]:SetForceAttackTarget(placeholder)
     end
 
+end
+
+
+function Workers:GoTo(position)
+    for i=1, self.amount do
+            ExecuteOrderFromTable({
+            UnitIndex = self.workers[i]:GetEntityIndex(),
+            OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+            Position = position,
+            Queue = false
+        })
+    end
 end
 
 -- function Workers:PushOut(building)

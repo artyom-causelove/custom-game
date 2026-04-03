@@ -2,6 +2,7 @@ require("logic/camp_spawner")
 require("logic/workers")
 require("logic/killListener")
 require("logic/particleCreator")
+require("logic/healers")
 
 require("utils/timers");
 
@@ -41,8 +42,19 @@ function MainMode:StartGame()
     MainMode.CampSpawner = CampSpawner()
     MainMode.KillListener = KillListener()
     MainMode.ParticleCreator = ParticleCreator()
+    MainMode.Healers = Healers()
     
     MainMode.CampSpawner:SpawnCamps()
     MainMode.Workers:Init()
     MainMode.KillListener:Init()
+    MainMode.Healers:Init()
+
+    self:SpawnOnTest("npc_build_sawmill")
+end
+
+
+function MainMode:SpawnOnTest(name)
+    local origin = Entities:FindByName(nil, "test"):GetAbsOrigin()
+    local unit = CreateUnitByName(name, origin, true, nil, nil, DOTA_TEAM_GOODGUYS)
+    Timers:CreateTimer(function() unit:SetAbsOrigin(origin) end)
 end

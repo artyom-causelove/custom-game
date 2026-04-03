@@ -9,7 +9,7 @@
 		"BaseClass" 				"npc_dota_creature"
 		"Model"						"models/heroes/troll_warlord/troll_warlord.vmdl"
 		"SoundSet"					"Hero_TrollWarlord"
-		"AnimationPrefix"			"troll_warlord"
+		"AnimationPrefix"			"TrollWarlord"
 
 		"UseNeutralCreepBehavior"	"0"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -96,12 +96,56 @@
 		}
 	}
 
+	"npc_healer"
+	{
+		"BaseClass" 				"npc_dota_creature"
+		"Model"						"models/heroes/keeper_of_the_light/keeper_of_the_light.vmdl"
+		"SoundSet"					"Hero_KeeperOfTheLight"
+		"AnimationPrefix"			"rattletrap"
+
+		"UseNeutralCreepBehavior"	"0"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+
+		"Level"						"1"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackRange"				"150"
+		"ArmorPhysical"				"100"
+		"MagicalResistance"			"100"
+		"MovementSpeed"				"400"
+		"MovementTurnRate"			"0.5"
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"1"
+		"VisionDaytimeRange"		"250"
+		"VisionNighttimeRange"		"250"
+
+		"ModelScale"				"0.8"
+		"particle_folder"		"particles/units/heroes/hero_keeper_of_the_light"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
+		
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+			"AttachWearables"
+			{
+				"Wearable1" {"ItemDef"	"252"}
+				"Wearable2" {"ItemDef"	"254"}
+				"Wearable3" {"ItemDef"	"255"}
+				"Wearable4" {"ItemDef"	"256"}
+			}
+		}
+	}
+
 	//--------------------Постройки-----------------------------
 
 	"npc_build_anvil"
 	{
 		"BaseClass"		"npc_dota_building"
-		"Model"			"models/props_structures/radiant_ranged_barracks001.vmdl"
+		"Model"			"models/buildings/blacksmith/blacksmith_house.vmdl"
 		"SoundSet"		"Creep_Good_Melee"
 
 		"ArmorPhysical"				"0"	
