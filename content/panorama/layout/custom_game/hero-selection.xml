@@ -1,0 +1,44 @@
+<root>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/utils.js"/>
+    <include src="file://{resources}/scripts/custom_game/hero-selection.js"/>
+  </scripts>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/button.css"/>
+    <include src="file://{resources}/styles/custom_game/hero-selection/main.css"/>
+    <include src="file://{resources}/styles/custom_game/hero-selection/hero.css"/>
+  </styles>
+
+  <Panel class="hero-selection">
+    <Panel class="hero-selection-wrapper">
+      <Label class="hero-selection-title" text="Выберите своего героя"/>
+      <Panel class="hero-list">
+        <Button class="hero-item" hero="npc_dota_hero_knight_rookie">
+          <Panel class="hero-item-nickname">
+            <Label class="hero-item-nickname-text" text="Не выбран"/>
+          </Panel>
+          <DOTAScenePanel
+            map="portraits/npc_dota_hero_knight_rookie"
+            light="light"
+            camera="camera"
+            antialias="true"
+            particleonly="false"
+            rendershadows="true"
+            deferredalpha="true"
+            renderdeferred="false"
+            renderwaterreflections="false"
+            class="hero-item-portrait"
+          />
+          <Panel class="hero-item-name">
+            <Image class="hero-item-name-class" src="s2r://panorama/images/hud/reborn/icon_damage_psd.vtex"/>
+            <Image class="hero-item-name-attribute" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex"/>
+            <Label class="hero-item-name-text" text="Alliance Knight"/>
+          </Panel>
+        </Button>
+      </Panel>
+      <Button class="hero-selection-button button">
+        <Label class="hero-selection-button-text button-text" text="Выбрать"/>
+      </Button>
+    </Panel>
+  </Panel>
+</root>

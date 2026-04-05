@@ -142,7 +142,7 @@
 
 	//--------------------Постройки-----------------------------
 
-	"npc_build_anvil"
+	"npc_build_blacksmith"
 	{
 		"BaseClass"		"npc_dota_building"
 		"Model"			"models/buildings/blacksmith/blacksmith_house.vmdl"
@@ -152,8 +152,6 @@
 		"MagicalResistance"			"0"	
 		"StatusHealth"				"1000"
 		"StatusHealthRegen"			"0"
-		"RingRadius"				"200"
-		"BoundsHullName" "DOTA_HULL_SIZE_BUILDING"
 		
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"

@@ -3,8 +3,10 @@ require("logic/workers")
 require("logic/killListener")
 require("logic/particleCreator")
 require("logic/healers")
+require("logic/pickListiner")
+require("logic/spawnListiner")
 
-require("utils/timers");
+require("utils/timers")
 
 if MainMode == nil then
 	MainMode = class({})
@@ -27,7 +29,9 @@ function MainMode:InitGameMode()
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, 5)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 
-    ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(self, 'modeStateChange'), self)
+    ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(self, "modeStateChange"), self)
+
+	CustomGameEventManager:RegisterListener("custom_player_pick_hero", Dynamic_Wrap(PickListener, "OnPick"))
 end
 
 function MainMode:modeStateChange(data)
@@ -43,18 +47,23 @@ function MainMode:StartGame()
     MainMode.KillListener = KillListener()
     MainMode.ParticleCreator = ParticleCreator()
     MainMode.Healers = Healers()
+    MainMode.SpawnListener = SpawnListener()
     
     MainMode.CampSpawner:SpawnCamps()
     MainMode.Workers:Init()
     MainMode.KillListener:Init()
     MainMode.Healers:Init()
+    MainMode.SpawnListener:Init()
 
-    self:SpawnOnTest("npc_build_sawmill")
+    self:SpawnOnTest("npc_build_blacksmith")
 end
 
 
 function MainMode:SpawnOnTest(name)
     local origin = Entities:FindByName(nil, "test"):GetAbsOrigin()
     local unit = CreateUnitByName(name, origin, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    Timers:CreateTimer(function() unit:SetAbsOrigin(origin) end)
+    Timers:CreateTimer(function()
+        unit:SetAbsOrigin(origin)
+            unit:SetHullRadius(250)
+        end)
 end

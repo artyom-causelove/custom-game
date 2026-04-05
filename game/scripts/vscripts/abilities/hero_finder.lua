@@ -58,7 +58,7 @@ function modifier_hero_finder:ShowBuildingWindow(player)
                     description = 'Описание постройки "Лесопилка"'
                 },
                 {
-                    class = 'npc_build_anvil',
+                    class = 'npc_build_blacksmith',
                     title = 'Кузница',
                     image = 's2r://panorama/images/hud/facets/innate_icon_large_png.vtex',
                     price = 1200,

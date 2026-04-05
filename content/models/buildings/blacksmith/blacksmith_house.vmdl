@@ -110,6 +110,34 @@
 				]
 				default_root_bone_name = ""
 			},
+			{
+				_class = "ModelDataList"
+				children = 
+				[
+					{
+						_class = "Bounds Hull"
+						mins = [ -199.78043, -266.22443, -7.9257736 ]
+						maxs = [ 159.18814, 256.61673, 264.6065 ]
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = "blacksmith_root"
+						surface_prop = "default"
+						collision_prop = "default"
+						tool_material = ""
+						origin = [ 78.34525, 184.28757, 44.529346 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 330.5946, 526.0176, 269.99252 ]
+					},
+				]
+				leave_body_collision_unmodified = false
+			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""

@@ -25,6 +25,12 @@ function Precache( context )
 	PrecacheResource( "model", "models/development/invisiblebox.vmdl", context )
 	PrecacheResource( "model", "models/buildings/blacksmith/blacksmith_house.vmdl", context )
 	PrecacheResource( "model", "models/props_generic/wagon_wood_02_centaur.vmdl", context )
+
+	PrecacheResource( "model", "models/heroes/dragon_knight_persona/dk_persona_weapon.vmdl", context )
+	PrecacheResource( "model", "models/heroes/dragon_knight_persona/dk_persona_head_hair.vmdl", context )
+	PrecacheResource( "model", "models/heroes/dragon_knight_persona/dk_persona_armor.vmdl", context )
+
+
 	PrecacheResource( "particle", "particles/econ/items/elder_titan/elder_titan_ti7/elder_titan_echo_stomp_ti7_ring_wave.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_techies/techies_minefield_hammer.vpcf", context )
 end
