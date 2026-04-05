@@ -55,7 +55,11 @@ function MainMode:StartGame()
     MainMode.Healers:Init()
     MainMode.SpawnListener:Init()
 
+<<<<<<< Updated upstream
     self:SpawnOnTest("npc_build_blacksmith")
+=======
+    self:SpawnOnTest("npc_build_anvil")
+>>>>>>> Stashed changes
 end
 
 

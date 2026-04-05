@@ -36,13 +36,10 @@ function CampSpawner:AttachToCamps()
             DOTA_UNIT_TARGET_FLAG_NONE, 
             FIND_ANY_ORDER, 
             false)
-        print(#enemies)
         self.enemies_on_camp_left[i] = 0
         for j=1, #enemies do
             enemies[j].camp = i
-            print(i)
             self.enemies_on_camp_left[i] = self.enemies_on_camp_left[i] + 1
-            print(enemies[j].camp .. " - " .. self.enemies_on_camp_left[i])
         end
     end
 end
