@@ -23,6 +23,8 @@ end
 
 function MainMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+    GameRules:SetUseUniversalShopMode(false)
+    GameRules:GetGameModeEntity():SetBuybackEnabled(false)
     GameRules:SetPreGameTime(0)
     GameRules:SetStrategyTime(0)
     GameRules:SetShowcaseTime(0)
@@ -55,19 +57,13 @@ function MainMode:StartGame()
     MainMode.Healers:Init()
     MainMode.SpawnListener:Init()
 
-<<<<<<< Updated upstream
     self:SpawnOnTest("npc_build_blacksmith")
-=======
-    self:SpawnOnTest("npc_build_anvil")
->>>>>>> Stashed changes
 end
 
 
 function MainMode:SpawnOnTest(name)
     local origin = Entities:FindByName(nil, "test"):GetAbsOrigin()
     local unit = CreateUnitByName(name, origin, true, nil, nil, DOTA_TEAM_GOODGUYS)
-    Timers:CreateTimer(function()
-        unit:SetAbsOrigin(origin)
-            unit:SetHullRadius(250)
-        end)
+    unit:SetAbsOrigin(origin)
+    unit:SetHullRadius(250)
 end

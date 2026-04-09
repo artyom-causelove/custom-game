@@ -21,6 +21,8 @@ function KillListener:entityKilled(data)
         else
             self:CampCleared(killed.camp)
         end
+    elseif killed:IsRealHero() then
+        self:HeroKilled(killed)
     end
 end
 
@@ -32,6 +34,17 @@ function KillListener:CampCleared(camp)
     placeholder.camp = camp
     ParticleCreator:BuildingPlaceholder(placeholder)
     Workers.buildings[camp] = placeholder
+end
+
+function KillListener:HeroKilled(hero)
+    hero:SetTimeUntilRespawn(999999)
+
+    local position = hero:GetAbsOrigin()
+    local tomb = CreateUnitByName("npc_build_deadplace", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
+    tomb:SetAbsOrigin(position)
+    tomb:SetHealthBarOffsetOverride(10000)
+    tomb:SetControllableByPlayer(hero:GetPlayerID(), true)
+    tomb:SetOwner(hero)
 end
 
 function KillListener:KillAfterTimer(entity)

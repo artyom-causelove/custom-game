@@ -99,7 +99,7 @@
 	"npc_healer"
 	{
 		"BaseClass" 				"npc_dota_creature"
-		"Model"						"models/heroes/keeper_of_the_light/keeper_of_the_light.vmdl"
+		"Model"						"models/units/loader/loader.vmdl"
 		"SoundSet"					"Hero_KeeperOfTheLight"
 		"AnimationPrefix"			"rattletrap"
 
@@ -123,8 +123,7 @@
 		"VisionDaytimeRange"		"250"
 		"VisionNighttimeRange"		"250"
 
-		"ModelScale"				"0.8"
-		"particle_folder"		"particles/units/heroes/hero_keeper_of_the_light"
+		"ModelScale"				"0.25"
 		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		
 		"Creature"
@@ -211,6 +210,43 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS"
+	}
+
+	"npc_build_healertent"
+	{
+		"BaseClass"		"npc_dota_creature"
+		"Model"			"models/props_generic/tent_03a.vmdl"
+		"SoundSet"		"Creep_Good_Melee"
+
+		"ArmorPhysical"				"0"	
+		"MagicalResistance"			"0"	
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"Ability1"					"hero_reviver"
+		
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS"
+	}
+
+	"npc_build_deadplace"
+	{
+		"BaseClass"		"npc_dota_building"
+		"Model"			"models/heroes/phantom_assassin/arcana_tombstone.vmdl"
+		"SoundSet"		"Creep_Good_Melee"
+
+		"ArmorPhysical"				"0"	
+		"MagicalResistance"			"0"	
+		"StatusHealth"				"100"
+		"StatusHealthRegen"			"0"
+		"RingRadius"				"200"
+		"Ability1"					"call_for_help"
+		
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS"
 	}
 }

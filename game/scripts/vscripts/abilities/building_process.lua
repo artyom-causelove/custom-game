@@ -37,9 +37,10 @@ function modifier_building_process:GetModifierTotal_ConstantBlock(params)
         local camp_id = parent.camp
 
         local building = CreateUnitByName(building_name, parent:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
-        Timers:CreateTimer(function() building:SetAbsOrigin(parent:GetAbsOrigin()) end)
+        building:SetAbsOrigin(parent:GetAbsOrigin())
         Workers.buildings[camp_id] = building
-        
+        Workers:PushOut(building)
+
         KillListener:KillAfterTimer(parent)
         Workers:GoTo(home:GetAbsOrigin())
     end

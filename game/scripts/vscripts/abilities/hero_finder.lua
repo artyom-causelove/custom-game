@@ -11,10 +11,11 @@ modifier_hero_finder = class({})
 function modifier_hero_finder:IsHidden() return true end
 function modifier_hero_finder:IsPurgable() return false end
 
-local interval = 2
+local interval
 
 function modifier_hero_finder:OnCreated()
     if not IsServer() then return end
+    interval = self:GetAbility():GetSpecialValueFor("interval")
     self:StartIntervalThink(interval)
 end
 

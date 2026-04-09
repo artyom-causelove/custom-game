@@ -7,11 +7,38 @@
 	{
 		"BaseClass"				"ability_lua"
 		"ScriptFile"			"abilities/hero_finder"
-		"AbilityTextureName"	"building_place"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"building_place"
 		"AbilityValues"
 		{
-				"aura_radius"								"400"	
+				"aura_radius"								"400"
+				"interval"									"2"	
+		}
+	}
+
+	"hero_reviver"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/hero_reviver"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"building_place"
+		"AbilityValues"
+		{
+				"aura_radius"								"400"
+				"interval"									"2"
+		}
+	}
+
+	"call_for_help"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"abilities/call_for_help"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"	"building_place"
+		"AbilityValues"
+		{
+				"aura_radius"								"400"
+				"interval"									"1"
 		}
 	}
 
